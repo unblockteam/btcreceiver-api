@@ -11,7 +11,8 @@
     // Methods group list
     $method_groups = [
         "auth",
-        "test"
+        "test",
+        "btc"
     ];
 
     try{
