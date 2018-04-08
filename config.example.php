@@ -17,5 +17,10 @@
             "password" => "",
             "name" => "",
             "port" => ""
-        ]];
+        ],
+        "rpc" => [
+            "user" => "",
+            "password" => ""
+        ]
+    ];
 ?>
