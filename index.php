@@ -6,7 +6,10 @@
     include_once("include/ApiEngine.php");
 
     // Methods group list
-    $method_groups = array("test");
+    $method_groups = [
+        "auth",
+        "test"
+    ];
 
     try{
         $route = new Route();

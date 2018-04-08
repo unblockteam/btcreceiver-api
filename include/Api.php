@@ -44,7 +44,7 @@ class Api {
                             then 1
                             else 0
                     end ";
-            $q= "as expired, s.uid as uid, u.login as login  
+            $q= "as expired, s.uid as uid, u.wallet as wallet  
                  from sessions s
                  left join users u on s.uid = u.id
                  where s.access_token = '$request[access_token]'";
@@ -55,7 +55,7 @@ class Api {
             throw new ApiError(8);
         else 
             return array("uid" => $res[0]["uid"], 
-                         "login" => $res[0]["login"],
+                         "wallet" => $res[0]["wallet"],
                          "access_token" => $request["access_token"]);
     }
     function initSession($s){
