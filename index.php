@@ -1,5 +1,8 @@
 <?php
+    header('Access-Control-Allow-Origin: *');
+    
     include_once("config.php");
+    include_once("include/Bitcoin.php");
     include_once("include/common.php");
     include_once("include/ApiError.php");
     include_once("include/Route.php");

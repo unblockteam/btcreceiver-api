@@ -4,7 +4,7 @@ create user ROLENAME password 'ROLEPASS';
 --tables
 create table users (
   id serial primary key,
-  wallet varchar(34) unique,
+  wallet varchar(42) unique,
   password char(60),
   created timestamp(0) with time zone default current_timestamp
 );

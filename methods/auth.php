@@ -13,14 +13,18 @@ class auth extends Api {
 
         $request["password"] = is_($request["password"], "string", $request["password"], null, array("notrim" => true, "require" => true));
 
-        // TODO: Добавить генерацию BTC кошелька
+        global $config;
+        $btc = new Bitcoin($config['rpc']['user'], $config['rpc']['password']);
+        $new_address = $btc->createnewaddress();
 
-        $wallet = "...";
+        if (isset($btc->error)) {
+            throw new ApiError(9);
+        } else {
+            $wallet = $new_address;
+        }
 
         if($this->walletExists($wallet))
             throw new ApiError(11);
-
-        // TODO: Перегенерация кошелька в случае совпадения, а не Error
 
         $user = $this->newUser($wallet, password_hash($request["password"], PASSWORD_DEFAULT, array("cost" => "12")));
 
