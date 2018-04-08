@@ -18,7 +18,15 @@ create table sessions (
 
 --user permission
 grant select, insert, update
-on users
+on users, sessions
+to ROLENAME;
+
+grant  usage, select
+on all sequences in schema public
+to ROLENAME;
+
+grant delete
+on sessions
 to ROLENAME;
 
 grant connect

@@ -44,7 +44,7 @@ class Api {
                             then 1
                             else 0
                     end ";
-            $q= "as expired, s.uid as uid, u.wallet as wallet  
+            $q .= "as expired, s.uid as uid, u.wallet as wallet  
                  from sessions s
                  left join users u on s.uid = u.id
                  where s.access_token = '$request[access_token]'";
